@@ -1,0 +1,29 @@
+service qseecomd vendor/bin/qseecomd
+    disabled
+    setenv LD_LIBRARY_PATH /vendor/lib64
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+service pulldecryptfiles /sbin/pulldecryptfiles.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+on fs
+    wait /dev/block/platform/soc.0/f9824900.sdhci
+    symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
+    chmod 0660 /dev/qseecom
+    chown system drmrpc /dev/qseecom
+    chmod 0664 /dev/ion
+    chown system system /dev/ion
+    start pulldecryptfiles
+    install_keyring
+
+on property:pulldecryptfiles.finished=1
+    start qseecomd
+
+on property:init.svc.qseecomd=running
+    start recovery
