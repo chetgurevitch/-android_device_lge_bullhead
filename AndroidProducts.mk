@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_angler.mk
+    $(LOCAL_DIR)/omni_bullhead.mk

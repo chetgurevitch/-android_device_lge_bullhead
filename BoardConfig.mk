@@ -15,12 +15,12 @@
 #
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := MSM8994
+TARGET_BOOTLOADER_BOARD_NAME := MSM8992
 TARGET_NO_BOOTLOADER := true
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8994
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno430
+TARGET_BOARD_PLATFORM := msm8992
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno418
 
 # Architecture
 TARGET_ARCH := arm64
@@ -36,17 +36,17 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=angler androidboot.console=ttyHSL0 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5
+BOARD_KERNEL_CMDLINE := androidboot.hardware=bullhead androidboot.console=ttyHSL0 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5
 
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 
 # prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/huawei/angler/kernel
+TARGET_PREBUILT_KERNEL := device/lge/bullhead/kernel
 # else uncomment below to build from sauce
-# TARGET_KERNEL_SOURCE := kernel/huawei/angler
-# TARGET_KERNEL_CONFIG := angler_defconfig
+# TARGET_KERNEL_SOURCE := kernel/lge/bullhead
+# TARGET_KERNEL_CONFIG := bullhead_defconfig
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 41943040
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 41943040
